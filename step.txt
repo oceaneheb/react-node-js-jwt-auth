@@ -1,0 +1,7 @@
+Server Side
+    npm init -y
+    npm install express mysql2 cors nodemon cookie-parser jsonwebtoken bcrypt
+Front-end
+    npm create vite@latest .
+    npm install bootstrap axios react-router-dom
+    npm run dev
