@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import api from "./api.js"; //importation du service API
 
 
 function App() {
@@ -15,28 +16,63 @@ function App() {
     const [trips, setTrips] = useState([]);
 
     const navigate = useNavigate();
-    axios.defaults.withCredentials = true;
+    // axios.defaults.withCredentials = true; //supprimer avec la création de api.js
 
-    //Fonction déconnexion
+    //Fonction déconnexion //supprimer avec la création de api.js
+    // const handleLogOut = () => {
+    //     axios.get('http://localhost:8081/logout')
+    //     .then(res => {
+    //         location.reload(true);
+    //     }).catch(err => console.log(err));
+    // }
+
     const handleLogOut = () => {
-        axios.get('http://localhost:8081/logout')
-        .then(res => {
+        api.logout()
+        .then(() => {
             location.reload(true);
-        }).catch(err => console.log(err));
+        })
+        .then(err => console.log(err));
     }
 
+    // useEffect(() => { //supprimer avec la création de api.js
+    //     axios.get('http://localhost:8081')
+    //     .then(res => {
+            
+    //         if(res.data.Status === "Success") {
+    //             setAuth(true);
+    //             // setName(res.data.name);
+    //             setEmail(res.data.email);
+    //             navigate('/');
+
+    //             //Afficher les trajets de l'utilisateur connecté
+    //             axios.get('http://localhost:8081/trajets')
+    //             .then(res => {
+    //                 setTrips(res.data);
+    //                 console.log(res.data);
+    //             })
+    //             .then(err => console.log(err));
+
+    //         } else {
+    //             setAuth(false);
+    //             setMessage(res.data.Error);
+    //         }
+    //     })
+    //     .then(err => console.log(err));
+
+        
+    // }, []);
+
     useEffect(() => {
-        axios.get('http://localhost:8081')
+        api.fetchUser()
         .then(res => {
             
             if(res.data.Status === "Success") {
                 setAuth(true);
-                // setName(res.data.name);
                 setEmail(res.data.email);
                 navigate('/');
 
                 //Afficher les trajets de l'utilisateur connecté
-                axios.get('http://localhost:8081/trajets')
+                api.fetchTrips()
                 .then(res => {
                     setTrips(res.data);
                     console.log(res.data);
@@ -51,7 +87,7 @@ function App() {
         .then(err => console.log(err));
 
         
-    }, []);
+    }, [navigate]);
 
   return (
     <div>
