@@ -5,7 +5,9 @@ import axios from "axios";
 function Register() {
 
     const [values, setValues] = useState({
-        name: '',
+        // name: '',
+        prenom: '',
+        nom: '',
         email: '',
         password: ''
     });
@@ -31,8 +33,12 @@ function Register() {
         <h2>Inscription</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="name">Nom</label>
-                    <input type="text" placeholder="Entrez votre nom" name="name" onChange={e => setValues({...values, name: e.target.value})}/>
+                    <label htmlFor="prenom">Prénom</label>
+                    <input type="text" placeholder="Entrez votre prénom" name="prenom" onChange={e => setValues({...values, prenom: e.target.value})}/>
+                </div>
+                <div>
+                    <label htmlFor="nom">Nom</label>
+                    <input type="text" placeholder="Entrez votre nom" name="nom" onChange={e => setValues({...values, nom: e.target.value})}/>
                 </div>
                 <div>
                     <label htmlFor="email">Email</label>

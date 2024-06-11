@@ -34,11 +34,14 @@ db.connect((error) => {
 
 //Inscription
 app.post('/register', (req, res) => {
-    const q = "INSERT INTO user (`name`, `email`, `password`) VALUES (?)";
+    // const q = "INSERT INTO user (`name`, `email`, `password`) VALUES (?)";
+    const q = "INSERT INTO users (`prenom`, `nom`, `email`, `password`) VALUES (?)"; //ajouter un champs nom en front
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
         if(err) return res.json({Error: "Error for hashing password"});
         const values = [
-            req.body.name,
+            // req.body.name,
+            req.body.prenom,
+            req.body.nom,
             req.body.email,
             hash
         ];
@@ -52,15 +55,19 @@ app.post('/register', (req, res) => {
 
 //Connexion
 app.post("/login", (req, res) => {
-    const q = "SELECT * from user WHERE email = ?";
+    // const q = "SELECT * from user WHERE email = ?";
+    const q = "SELECT * from users WHERE email = ?";
+
     db.query(q, [req.body.email], (err, data) => {
         if(err) return res.json({Error: "Login error in server"});
         if (data.length > 0) {
             bcrypt.compare(req.body.password.toString(), data[0].password, (err, response) => {
                 if(err) return res.json({Error: "Password compare error"});
                 if(response) {
-                    const name = data[0].name;
-                    const token = jwt.sign({name}, "jwt-secret-key", {expiresIn: '1d'});
+                    // const name = data[0].name;
+                    const email = data[0].email;
+                    // const token = jwt.sign({name}, "jwt-secret-key", {expiresIn: '1d'}); //récupère le nom pour créer le token
+                    const token = jwt.sign({email}, "jwt-secret-key", {expiresIn: '1d'}); //récupère l'email pour créer le token
                     res.cookie('token', token);
                     return res.json({Status: "Success"});
                 } else {
@@ -71,6 +78,62 @@ app.post("/login", (req, res) => {
             return res.json({Error: "Aucun email existe"});
         }
     })
+});
+
+//Vérifier si l'utilisateur est connecté avec le JWT Token
+const verifyUser = (req, res, next) => {
+    const token = req.cookies.token;
+    if(!token) {
+        return res.json({Error: "Vous n'êtes pas connecté"});
+    } else {
+        jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+            if(err) {
+                return res.json({Error: "Token n'est pas correct"});
+            } else {
+                // req.name = decoded.name;
+                req.email = decoded.email;
+                next();
+            }
+        })
+    }
+};
+
+app.get('/', verifyUser, (req, res) => {
+    // return res.json({Status: "Success", name: req.name, email: req.email});
+    return res.json({Status: "Success", email: req.email});
+});
+
+//Récupérer les trajets de l'utilisateur connecté
+app.get('/trajets', verifyUser, (req, res) => {
+    // const userId = req.decoded.id
+    const userConnectedEmail = req.email;
+    
+    const q = "SELECT id FROM users WHERE email = ?";
+    db.query(q, [userConnectedEmail], (err, data) => {
+        if(err) {
+            return res.json({Error: "Impossible de récupérer l'id de l'utilisateur"})
+        } else {
+            if(data.length === 0) {
+                return res.json({Error: "Utilisateur non trouvé"})
+            }
+
+            const userId = data[0].id;
+            const sql = "SELECT * FROM trajets WHERE userId = ?";
+            db.query(sql, [userId], (err, results) => {
+                if(err) {
+                    return res.json({Error: err});
+                } else {
+                    res.json(results);
+                }
+            });
+        }
+    })
+});
+
+//Fonction déconnexion
+app.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    return res.json({Status: "Success"});
 })
 
 app.listen(8081, () => {
