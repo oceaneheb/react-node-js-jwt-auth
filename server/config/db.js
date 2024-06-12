@@ -1,11 +1,13 @@
 import mysql from 'mysql2';
+//Charger les variables d'environnement
+import 'dotenv/config';
 
 //Create connexion with mysql database
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "signup"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 //Tester la connexion avec la BDD 

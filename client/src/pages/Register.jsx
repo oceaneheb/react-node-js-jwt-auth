@@ -5,7 +5,6 @@ import axios from "axios";
 function Register() {
 
     const [values, setValues] = useState({
-        // name: '',
         prenom: '',
         nom: '',
         email: '',
@@ -13,6 +12,7 @@ function Register() {
     });
 
     const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         console.log(values)
         event.preventDefault();
@@ -27,7 +27,7 @@ function Register() {
         .then(err => console.log(err));
     }
 
-  return (
+    return (
     <div>
         <div>
         <h2>Inscription</h2>

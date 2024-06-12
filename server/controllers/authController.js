@@ -20,6 +20,7 @@ export const register = (req, res) => {
 //Connexion d'un utilisateur
 export const login = (req, res) => { 
     const { email, password } = req.body; 
+    console.log(email, password);
     getUserByEmail(email, (err, data) => { 
         if (err) return res.json({ Error: "Login error in server" });
         if (data.length > 0) { 
@@ -29,7 +30,7 @@ export const login = (req, res) => {
                     const email = data[0].email;
                     const token = jwt.sign({ email }, jwtSecret, { expiresIn: '1d' }); 
                     res.cookie('token', token); 
-                    return res.json({ Status: "Success" }); 
+                    return res.json({ Status: "Success", token: token }); 
                 } else { 
                     return res.json({ Error: "Le mot de passe est incorrect" }); 
                 } 

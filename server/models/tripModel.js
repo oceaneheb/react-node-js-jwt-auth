@@ -7,3 +7,11 @@ export const getTripsByUserId = (userId, callback) => {
         callback(null, results); 
     }); 
 };
+
+export const addTripByUserId = (values, callback) => { 
+    const q = "INSERT INTO trajets (`adresse_depart`, `adresse_arrivee`, `date`, `nombre_places`, `userId`) VALUES (?)" 
+    db.query(q, [values], (err, results) => { 
+        if (err) return callback(err); 
+        callback(null, results); 
+    }); 
+};

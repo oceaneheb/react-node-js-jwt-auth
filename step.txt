@@ -1,7 +1,14 @@
 Server Side
-    npm init -y
-    npm install express mysql2 cors nodemon cookie-parser jsonwebtoken bcrypt
+    Créer le projet : 
+    - npm init -y
+    Installer les nodes_modules et les dépendances : 
+    - npm install express mysql2 cors nodemon cookie-parser jsonwebtoken bcrypt
+    Lancer le serveur : 
+    - npm start
 Front-end
-    npm create vite@latest .
-    npm install bootstrap axios react-router-dom
-    npm run dev
+    Créer le projet avec Vite : 
+    - npm create vite@latest .
+    Installer les nodes_modules et les dépendances : 
+    - npm install bootstrap axios react-router-dom
+    Lancer le projet sur un navigateur web :
+    - npm run dev
