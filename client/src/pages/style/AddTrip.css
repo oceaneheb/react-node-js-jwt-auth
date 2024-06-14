@@ -1,0 +1,114 @@
+#create-trip-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#section-create-trip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+
+    h2 {
+        color: #212529;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    form {
+
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        max-width: 600px;
+        border-radius: 8px;
+        padding: 2rem;
+
+        .form-section {
+            margin-bottom: 2rem;
+
+            h4 {
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+    
+            hr {
+                margin-bottom: 1.5rem;
+            }
+
+            .comments {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .form-section-item {
+                margin: 1rem 0;
+                
+                h5 {
+                    margin-bottom: 0.75rem;
+                    color: #555;
+                    font-size: 15px;
+                }
+
+                .form-group {
+                    margin-bottom: 0.75rem;
+                    label {
+                        display: block;
+                        margin-bottom: 5px;
+                        color: #777;
+                    }
+
+                    .form-group-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.2rem;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 0.75rem;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                    }
+                }
+
+                .form-check {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    gap: 0.2rem;
+
+                    label {
+                        color: #555;
+                    }
+                }
+            } 
+
+            textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+        }
+
+        button {
+            padding: 0.75em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #65C0ED;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    }
+}

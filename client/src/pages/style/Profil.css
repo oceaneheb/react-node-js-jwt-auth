@@ -1,0 +1,131 @@
+#profile-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#section-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container-profil {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        /* background-color: #65C0ED; */
+        border-radius: 10px;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+                h3 {
+                    font-weight: 500;
+                    /* border-bottom: 1px solid rgb(33, 33, 33); */
+                    padding: 0.75rem;
+                    background-color: #7dccf4;
+                    border-radius: 4px;
+                }
+
+                button {
+                    background-color: white;
+                    color: #65C0ED;
+                    border: 1px solid #65C0ED;
+                    border-radius: 4px;
+                    padding: 0.5rem;
+                    margin-top: 1rem;
+                }
+
+                .container-content {
+                    margin-top: 2rem;
+                    display: flex;
+                }
+            }
+
+            #trajets-crees {
+                .list-trajets {
+                    height: 200px;
+                    overflow-y: scroll;
+                    margin-top: 5px;
+                }
+                
+                .card-trajet {
+                    background-color: #E9E9E9;
+                    margin-top: 0.75rem;
+                    border-radius: 10px;
+                    padding: 1rem;
+
+                    .card-trajet-header {
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid black;
+                        padding-bottom: 0.5rem;
+
+                        .frequency {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+
+                            .rond {
+                                width: 10px;
+                                height: 10px;
+                                background-color: green;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .picto {
+                            margin-left: 10px;
+                        }
+                    }
+
+                    .card-trajet-content {
+                        margin-top: 0.75rem;
+
+                        .date {
+                            margin-bottom: 0.75rem;
+                        }
+
+                        .adress {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 0.75rem;
+                        }
+                    }
+                }
+            }
+
+            /* #info-personnelles {
+                background-color: #ffdddd;
+            }
+            
+            #biographie {
+                background-color: #ddffdd;
+            }
+            
+            #trajets-crees {
+                background-color: #c1e7ff;
+            }
+            
+            #badges-gagnes {
+                background-color: #ffffdd;
+            } */
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

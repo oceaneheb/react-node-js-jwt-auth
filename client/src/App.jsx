@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import AddTrip from './pages/AddTrip';
 import './App.css';
 import PrivateRoute from "./components/PrivateRoute";
+import Profil from "./pages/Profil";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/addtrip' element={<PrivateRoute><AddTrip /></PrivateRoute>}></Route>
+        <Route path='/profil' element={<PrivateRoute><Profil /></PrivateRoute>}></Route>
       </Routes>
     </BrowserRouter>
   )
