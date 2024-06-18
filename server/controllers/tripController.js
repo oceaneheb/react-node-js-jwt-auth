@@ -18,8 +18,8 @@ export const addTrip = (req, res) => {
     const userConnectedEmail = req.email;
     
     getUserByEmail(userConnectedEmail, (err, data) => { 
-        if (err) return res.json({ Error: "Unable to retrieve user ID" }); 
-        if (data.length === 0) return res.json({ Error: "User not found" }); 
+        if (err) return res.json({ Error: "Impossible de récupérer l'ID de l'utilisateur" }); 
+        if (data.length === 0) return res.json({ Error: "Utilisateur non trouvé" }); 
         const userId = data[0].id;
         const values = [
             req.body.depart,
@@ -35,3 +35,11 @@ export const addTrip = (req, res) => {
         });
     })
 };
+
+// export const getAllTrips = (req, res) => {
+
+//     getAllTrips((err, results) => {
+//         if(err) return res.json({Erro: err});
+//         return res.json(results);
+//     });
+// };

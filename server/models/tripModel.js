@@ -15,3 +15,11 @@ export const addTripByUserId = (values, callback) => {
         callback(null, results); 
     }); 
 };
+
+// export const getAllTrips = (callback) => {
+//     const q = "SELECT * FROM trajets";
+//     db.query(q, (err, results) => {
+//         if(err) return callback(err);
+//         callback(null, results);
+//     });
+// };

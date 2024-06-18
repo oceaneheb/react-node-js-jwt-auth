@@ -8,6 +8,7 @@ import AddTrip from './pages/AddTrip';
 import './App.css';
 import PrivateRoute from "./components/PrivateRoute";
 import Profil from "./pages/Profil";
+import SearchTrip from "./pages/SearchTrip";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/home' element={<PrivateRoute><Home /></PrivateRoute>}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route path='/searchtrajet' element={<PrivateRoute><SearchTrip /></PrivateRoute>}></Route>
         <Route path='/addtrip' element={<PrivateRoute><AddTrip /></PrivateRoute>}></Route>
         <Route path='/profil' element={<PrivateRoute><Profil /></PrivateRoute>}></Route>
       </Routes>

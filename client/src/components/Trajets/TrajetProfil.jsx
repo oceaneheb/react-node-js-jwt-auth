@@ -18,12 +18,12 @@ function TrajetProfil({adresse_depart, adresse_arrivee, date}) {
             </div>
         </div>
         <div className="card-trajet-content">
-            <div>
+            {/* <div>
                 <div className='date'>
                     <p>Picto calendrier</p>
                 </div>
                 <div className="date">{date}</div>
-            </div>
+            </div> */}
             <div className='adress'>
                 <div>
                     <FaLocationDot />

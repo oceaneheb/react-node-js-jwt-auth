@@ -24,7 +24,7 @@ export const login = (req, res) => {
     getUserByEmail(email, (err, data) => { 
         if (err) return res.json({ Error: "Login error in server" });
         if (data.length > 0) { 
-            bcrypt.compare(password.toString(), data[0].password, (err, response) => { //ajout de toString()
+            bcrypt.compare(password.toString(), data[0].password, (err, response) => {
                 if (err) return res.json({ Error: "Password compare error" }); 
                 if (response) { 
                     const email = data[0].email;

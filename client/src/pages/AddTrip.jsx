@@ -39,10 +39,10 @@ function AddTrip() {
                 alert('Vous n\'êtes pas connecté ou votre session a expiré.');
                 navigate('/login');
             } else {
-                alert('An error occurred. Please try again.');
+                alert("Une erreur s'est produite. Veuillez réessayer.");
             }
         } else {
-            alert('An error occurred. Please try again.');
+            alert("Une erreur s'est produite. Veuillez réessayer.");
         }
     }
 
@@ -184,7 +184,7 @@ function AddTrip() {
                     </form>
                     
                     
-                    {/* <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="depart">Départ</label>
                             <input type="text" placeholder="Adresse de départ" name="depart" onChange={e => setValues({...values, depart: e.target.value})} />
@@ -202,7 +202,7 @@ function AddTrip() {
                             <input type="number" placeholder="Nombre de places" name="nbrplaces" onChange={e => setValues({...values, nbrplaces: e.target.value})} />
                         </div>
                         <button type="submit">Ajouter le trajet</button>
-                    </form> */}
+                    </form>
                 </div>
             </section>
             <Footer />

@@ -1,0 +1,84 @@
+.card-trajet-recherche {
+    margin-bottom: 17px;
+    padding: 22px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+
+    .card-trajet-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        border-bottom: 1px solid black;
+        padding-bottom: 17px;
+
+        .rond {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: green;
+        }
+    }
+
+    .card-trajet-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+        margin: 10px 0;
+
+        .img-user {
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+        }
+
+        .name-user {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .date-trajet {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 17px;
+        }
+
+        .adress {
+            margin: 20px 0;
+            
+            .adresse-depart div:first-child, .adresse-arrivee div:first-child {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: 3px;
+            }
+
+            .adresse-depart {
+                margin-bottom: 10px;
+            }
+
+            h5 {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        a {
+            padding: 8px 14px;
+            font-weight: 500;
+            background-color: #65C0ED;
+            border: none;
+            border-radius: 5px;
+            color: white;
+
+            &:hover {
+                background-color: #3b97c5;
+                color: white;
+            }
+        }
+    }
+}

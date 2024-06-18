@@ -22,8 +22,8 @@ function NavBar() {
             <li className={`navbar-item ${currentUrl == "http://localhost:5173/home" ? "active" : ""}`}>
                 <Link to="/home" className="navbar-link">Accueil</Link>
             </li>
-            <li className={`navbar-item ${currentUrl == "http://localhost:5173/trajets" ? "active" : ""}`}>
-                <Link to="/trajets" className="navbar-link">Rechercher un trajet</Link>
+            <li className={`navbar-item ${currentUrl == "http://localhost:5173/searchtrajet" ? "active" : ""}`}>
+                <Link to="/searchtrajet" className="navbar-link">Rechercher un trajet</Link>
             </li>
             <li className={`navbar-item ${currentUrl == "http://localhost:5173/addtrip" ? "active" : ""}`}>
                 <Link to="/addtrip" className="navbar-link">Créer un trajet</Link>

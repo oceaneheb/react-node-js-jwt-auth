@@ -6,6 +6,17 @@ const api = axios.create({
     withCredentials: true 
 }); 
 
+export const register = (user) => api.post('/register', user); 
+export const login = (credentials) => api.post('/login', credentials); 
+export const logout = () => api.get('/logout'); 
+export const fetchUser = () => api.get('/home'); 
+export const fetchTrips = () => api.get('/trajets'); 
+// export const fetchAllTrips = () => api.get('/alltrajets');
+
+export default api;
+
+
+
 // const navigate = useNavigate();
 
 // api.interceptors.response.use(
@@ -18,11 +29,3 @@ const api = axios.create({
 //         return Promise.reject(error);
 //     }
 // );
-
-export const register = (user) => api.post('/register', user); 
-export const login = (credentials) => api.post('/login', credentials); 
-export const logout = () => api.get('/logout'); 
-export const fetchUser = () => api.get('/home'); 
-export const fetchTrips = () => api.get('/trajets'); 
-
-export default api;
