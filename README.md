@@ -1,44 +1,43 @@
-# Blabla'drar
+# BlaBla'drar
 
 ## Introduction
-Cette application de covoiturage permet aux utilisateurs de rechercher et proposer des trajets pour faire du covoiturage. Elle est construite en utilisant React pour le front-end et Node.js pour le back-end.
+This carpooling application allows users to search for and suggest rides for carpooling. It is built using React for the front-end and Node.js for the back-end.
 
-## Fonctionnalités 
-- Inscription et connexion des utilisateurs
-- Création, modification et suppression de trajets
-- Modification de son profil utilisateur
-- Messagerie interne
+## Features
+- User registration and login
+- Creation, modification and deletion of journeys
+- Modification of your user profile
+- Internal messaging
 
-## Prérequis 
-
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
-- [Node.js](http://nodejs.org/) (version 14 ou supérieure)
+## Prerequisites 
+Before you begin, make sure you have the following installed:
+- [Node.js](http://nodejs.org/) (version 14 or higher)
 - [npm](https://www.npmjs.com/)
 - [Git](https://git-scm.com/)
 
 ## Installation
 
-### Cloner le Répository
+### Clone the Repository
 
 ```bash
-git clone https://github.com/votre-utilisateur/votre-repository.git
-cd votre-repository
+git clone https://github.com/yout-user/your-repository.git
+cd your-repository
 ```
 
-### Installer les dépendances
-Pour le front-end
+### Install dependencies
+For the front-end
 ```bash
 cd client
 npm install
 ```
 
-Pour le back-end
+For the back-end
 ```bash
 cd server
 npm install
 ```
-### Configurer les variables d'environnement
-Créez un fichier `.env` dans le répertoire `server` et remplissez-le avec vos configurations : 
+### Configure environment variables
+Create a `.env` file in the `server` directory and fill it with your configurations:
 
 DB_HOST=localhost
 
@@ -48,14 +47,14 @@ DB_PASS=password
 
 DB_NAME=covoiturage
 
-### Lancer les services
-Lancer le Serveur Backend
+### Launch services
+Launch the Backend Server
 ```bash
 cd server
 npm start
 ```
 
-Lancer l'Application Frontend
+Launch the Frontend Application
 ```bash
 cd client
 npm run dev
